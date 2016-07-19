@@ -74,12 +74,6 @@ class PredicateParser {
                 .name} %PARSED_OPERATION%${operation[0]} ${_formatInjectedValue(
                 value, m[1])} ';
           };
-//          print(regExp);
-//          print(_expression);
-//          print(_expression
-//              .replaceFirstMapped(new RegExp(regExp), replaceWith)
-//              .replaceAll(' )', ')')
-//              .trim());
           _expression = _expression
               .replaceFirstMapped(new RegExp(regExp), replaceWith)
               .replaceAll(' )', ')')
