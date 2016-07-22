@@ -21,3 +21,4 @@ part 'relationships/many_to_many_relationship.dart';
 part 'relationships/relationship_declaration.dart';
 part 'repository.dart';
 part 'repository_query.dart';
+part 'custom_query.dart';

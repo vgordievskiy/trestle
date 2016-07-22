@@ -75,15 +75,6 @@ abstract class SqlDriver implements Driver {
   }
 
   Future<Iterable<int>> addAll(Query query, Iterable<Map<String, dynamic>> rows) async {
-//    final variables = [];
-//    final multiQuery = rows.map((r) => _addQuery(variables, query, r)).join(' ')
-//        .replaceAllMapped(
-//        new RegExp(r'; INSERT .*? VALUES (\(.*?\))'),
-//        (m) => ', ${m[1]}');
-//    await execute(multiQuery, _serialize(variables)).toList();
-
-//    return execute(insertedIdQuery(query.table), [])
-//        .toList().then((l) => l.map((r) => r['id']));
     return () async* {
       for (final row in rows)
           yield await add(query, row);
@@ -104,6 +95,8 @@ abstract class SqlDriver implements Driver {
   Stream<Map<String, dynamic>> get(Query query, Iterable<String> fields) {
     final List<String> queryParts = [];
     final List variables = [];
+
+    if(query is CustomQuery) return execute(query.query, variables);
 
     queryParts.add('SELECT');
 

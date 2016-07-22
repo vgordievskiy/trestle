@@ -34,4 +34,6 @@ abstract class Driver {
   Future alterTable(String name, Schema schema);
 
   Future dropTable(String name);
+
+  Future run(Query qury);
 }

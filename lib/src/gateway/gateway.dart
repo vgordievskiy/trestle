@@ -17,6 +17,7 @@ import 'constraints/constraints.dart';
 
 part 'driver.dart';
 part 'query.dart';
+part 'custom_query.dart';
 part 'constraints.dart';
 part 'aggregates.dart';
 part 'create_actions.dart';
@@ -76,4 +77,3 @@ class Gateway {
     return new Migrator(this).rollback(migrations);
   }
 }
-
