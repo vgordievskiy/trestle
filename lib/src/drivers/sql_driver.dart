@@ -271,6 +271,8 @@ abstract class SqlDriver implements Driver {
         return 'XML$suffix';
       case ColumnType.json:
         return 'JSON$suffix';
+      default:
+        return '';
     }
   }
 
@@ -282,6 +284,8 @@ abstract class SqlDriver implements Driver {
       constraints.add(autoIncrementKeyword);
     if (!column.isNullable)
       constraints.add('NOT NULL');
+    if (column.shouldBeUnique)
+      constraints.add('UNIQUE');
     return constraints.join(' ');
   }
 }
